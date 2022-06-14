@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>ArcGIS Prototype: JavaScript API 4.6</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+        Sketch temporary geometries - 4.6</title>
+
+        <script>
+            var dojoConfig = {
+                has: {
+                    "esri-promise-compatibility": 1
+                }
+            };
+        </script>
+        <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css" />
+        <link rel="stylesheet" href="./css/map.css" />
+        <script src="https://js.arcgis.com/4.6/"></script>
+        <script src="./javascript/ext-all.js"></script>
+        <script src="./javascript/map.draw.js"></script>
+      </head>
+      
+      <body>
+        <div id="viewDiv">
+          <div id="topbar">
+            <button class="action-button esri-icon-map-pin" id="pointButton" type="button" title="Draw point"></button>
+            <!--<button class="action-button esri-icon-handle-horizontal" id="multipointButton" type="button" title="Draw multipoint"></button>-->
+            <button class="action-button esri-icon-polyline" id="polylineButton" type="button" title="Draw polyline"></button>
+            <button class="action-button esri-icon-radio-unchecked" id="circleButton" type="button" title="Draw circle"></button>
+            <button class="action-button esri-icon-checkbox-unchecked" id="rectangleButton" type="button" title="Draw rectangle"></button>
+            <button class="action-button esri-icon-polygon" id="polygonButton" type="button" title="Draw polygon"></button>
+            |
+            <button class="action-button esri-icon-download" id="openBtn" type="button" title="Open saved graphics"></button>
+            <button class="action-button esri-icon-save" id="saveBtn" type="button" title="Save graphics"></button>
+            |
+            <button class="action-button esri-icon-trash" id="resetBtn" type="button" title="Clear graphics"></button>
+          </div>
+        </div>
+      </body>
+      
+      </html>

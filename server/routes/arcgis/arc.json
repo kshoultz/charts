@@ -1,0 +1,66 @@
+{
+    "layerConfig": {
+        "fields": [
+            {
+                "name": "ObjectID",
+                "alias": "ObjectID",
+                "type": "oid"
+            },
+            {
+                "name": "type",
+                "alias": "Type",
+                "type": "string"
+            },
+            {
+                "name": "place",
+                "alias": "Place",
+                "type": "string"
+            }
+        ],
+        "objectIdField": "ObjectID",
+        "geometryType": "point",
+        "spatialReference": {
+            "wkid": 4326
+        },
+        "source": [],
+        "popupTemplate": {
+            "title": "{DepArpt}",
+            "content": [
+                {
+                    "type": "fields",
+                    "fieldInfos": [
+                        {
+                            "fieldName": "ObjectID"
+                        },
+                        {
+                            "fieldName": "DepArpt"
+                        },
+                        {
+                            "fieldName": "MsgTime"
+                        },
+                        {
+                            "fieldName": "FltId"
+                        }
+                    ]
+                }
+            ]
+        },
+        "renderer": {
+            "type": "simple",
+            "symbol": {
+                "type": "simple-marker",
+                "size": 10,
+                "color": "#FF4000",
+                "outline": {
+                    "color": [
+                        255,
+                        64,
+                        0,
+                        0.4
+                    ],
+                    "width": 7
+                }
+            }
+        }
+    }
+}

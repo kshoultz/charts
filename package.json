@@ -1,0 +1,21 @@
+{
+  "name": "arcgis",
+  "version": "0.1.0",
+  "description": "This is the web project that I will use to develop on the Esri ArcGIS JavaScript platform.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "11.10.0"
+  },
+  "author": "Kevin Shoultz <kevin@shoultzinteractive.com> (http://www.shoultzinteractive.com)",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "lodash": "^4.17.5",
+    "mongodb": "^3.0.2",
+    "mongoose": "^5.0.4"
+  }
+}

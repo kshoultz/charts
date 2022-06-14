@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Intro to graphics - 4.5</title>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.5/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.5/"></script>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+  <script>
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/Graphic",
+      "esri/geometry/Extent",
+      "dojo/domReady!"
+    ], function(
+      Map, MapView, Graphic, Extent
+    ) {
+
+      var map = new Map({
+        basemap: "hybrid"
+      });
+
+      var view = new MapView({
+        center: [-80, 35],
+        container: "viewDiv",
+        map: map,
+        zoom: 3
+      });
+      // Create a symbol for rendering the graphic
+      var fillSymbol = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: [227, 139, 79, 0.8],
+        outline: { // autocasts as new SimpleLineSymbol()
+          color: [255, 255, 255],
+          width: 1
+        }
+      };
+      
+      let extentGraphic = null;
+      let origin = null;
+      view.on('drag', e => {
+        e.stopPropagation();
+        if (e.action === 'start'){
+          if (extentGraphic) view.graphics.remove(extentGraphic)
+          origin = view.toMap(e);
+        } else if (e.action === 'update'){
+          if (extentGraphic) view.graphics.remove(extentGraphic)
+          let p = view.toMap(e); 
+          extentGraphic = new Graphic({
+            geometry: new Extent({
+              xmin: Math.min(p.x, origin.x),
+              xmax: Math.max(p.x, origin.x),
+              ymin: Math.min(p.y, origin.y),
+              ymax: Math.max(p.y, origin.y),
+              spatialReference: { wkid: 102100 }
+            }),
+            symbol: fillSymbol
+          })
+          
+          view.graphics.add(extentGraphic)
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>
