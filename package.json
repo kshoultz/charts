@@ -13,7 +13,7 @@
   "author": "Kevin Shoultz <kevin@shoultzinteractive.com> (http://www.shoultzinteractive.com)",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "lodash": "^4.17.5",
     "mongodb": "^3.0.2",
     "mongoose": "^5.0.4"
